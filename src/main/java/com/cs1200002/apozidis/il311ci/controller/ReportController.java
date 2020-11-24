@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class ReportController {
 
     @Autowired
@@ -33,8 +34,18 @@ public class ReportController {
         return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PostMapping("/reports")
+    @PostMapping(value = "/report")
     public Report addReport(Report report) {
         return reportService.addReport(report);
+    }
+
+    @DeleteMapping("/report/{id}")
+    public void deleteById(@PathVariable Long id){
+        reportService.deleteById(id);
+    }
+
+    @GetMapping(value = "/countReports")
+    public int countTotalReports() {
+        return reportService.getTotalReports();
     }
 }

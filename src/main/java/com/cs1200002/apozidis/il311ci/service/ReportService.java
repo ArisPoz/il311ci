@@ -41,4 +41,12 @@ public class ReportService {
             return new ArrayList<>();
         }
     }
+
+    public void deleteById(long id){
+        reportRepository.deleteById(id);
+    }
+
+    public int getTotalReports() {
+        return reportRepository.countTotalReportRecords();
+    }
 }

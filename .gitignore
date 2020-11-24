@@ -23,7 +23,7 @@ target/
 mvnw
 mvnw.cmd
 /target
-/Data
+/db_script/Data
 
 ### NetBeans ###
 /nbproject/private/
