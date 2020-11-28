@@ -23,6 +23,7 @@ public class Main {
     private static long treesCount = 0;
 
     public static void main(String[] args) throws SQLException, IOException {
+        long start = System.currentTimeMillis();
         Properties props = new Properties();
         props.setProperty("user", USER);
         props.setProperty("password", PASSWORD);
@@ -53,6 +54,7 @@ public class Main {
         persist(connectionURI, "Data\\311-service-requests-tree-debris.csv");
         persist(connectionURI, "Data\\311-service-requests-tree-trims.csv");
         connectionURI.close();
+        System.out.println("Total Duration: " + ((System.currentTimeMillis() - start) / 1000) + "s");
     }
 
     public static void createDB(Connection connectionURI) throws SQLException {

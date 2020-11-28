@@ -12,7 +12,7 @@ public class Report {
     private String completionDate;
     private String status;
     private String serviceRequestNumber;
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "type", referencedColumnName = "typeId", nullable = false)
     private Type type;
     @ManyToOne(cascade=CascadeType.ALL)

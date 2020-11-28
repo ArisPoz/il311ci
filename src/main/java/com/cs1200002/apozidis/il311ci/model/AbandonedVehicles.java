@@ -1,5 +1,8 @@
 package com.cs1200002.apozidis.il311ci.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +19,7 @@ public class AbandonedVehicles {
     String mostRecentAction;
     double daysParked;
     @ManyToOne(cascade=CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "report", referencedColumnName = "reportId", nullable = false)
     private Report report;
 
